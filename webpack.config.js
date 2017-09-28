@@ -17,7 +17,10 @@ var config = {
         include : APP_DIR,
         loader : 'babel-loader'
       }
-    ]
+    ],
+  },
+  resolve : {
+    extensions: [".jsx", ".json", ".js"]
   }
 };
 
