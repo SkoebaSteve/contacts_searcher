@@ -10,7 +10,8 @@ class ContactSearch extends React.Component {
   super(props)
     this.state = {
       contacts: [],
-      filter: "firstName"
+      filter: 'firstName',
+      value: '',
     }
 
     fetch('http://localhost:3000/contacts')
@@ -28,28 +29,27 @@ class ContactSearch extends React.Component {
   userArray = []
 
   updateContacts = () => {
+    const filteredUsers = this.userArray.filter((user) => {
+      if (String(user[this.state.filter]).indexOf(this.state.value) !== -1) {
+        return user
+      }
+      return null
+    })
     this.setState({
-      contacts: this.userArray
+      contacts: filteredUsers
     })
   }
 
   onFilter = (value) => {
     this.setState({
       filter: value
-    })
+    }, this.updateContacts)
   }
 
   onChange = (value) => {
-    const filteredUsers = this.userArray.filter((user) => {
-      if (String(user[this.state.filter]).indexOf(value) !== -1) {
-        return user
-      }
-      return null
-    })
-
     this.setState({
-      contacts:filteredUsers
-    })
+      value: value
+    }, this.updateContacts)
   }
   
   render () {
