@@ -3,15 +3,33 @@ import { render } from 'react-dom'
 import SearchForm from './searchForm'
 import SearchResults from './searchResults'
 
-const userArray = [
-  {firstName: "steef", lastName: "Janssen", phoneNumber: "012345678"}
-]
-
 class ContactSearch extends React.Component {
 
-  state = {
-    users: userArray,
-    filter: "firstName"
+  constructor(props) {
+  super(props)
+    this.state = {
+      contacts: [],
+      filter: "firstName"
+    }
+
+    fetch('http://localhost:3000/contacts')
+      .then((response) => {
+        return response.json()
+      }).then((json) => {
+        this.userArray = json
+        this.updateContacts(this.userArray)
+      }).catch((ex) => {
+        console.log('parsing failed', ex)
+      })
+
+  }
+
+  userArray = []
+
+  updateContacts = (contacts) => {
+    this.setState({
+      contacts: contacts
+    })
   }
 
   onFilter = (value) => {
@@ -21,15 +39,15 @@ class ContactSearch extends React.Component {
   }
 
   onChange = (value) => {
-    const filteredUsers = userArray.filter((user) => {
-      if (user[this.state.filter].indexOf(value) !== -1) {
+    const filteredUsers = this.userArray.filter((user) => {
+      if (String(user[this.state.filter]).indexOf(value) !== -1) {
         return user
       }
       return null
     })
 
     this.setState({
-      users:filteredUsers
+      contacts:filteredUsers
     })
   }
   
@@ -37,7 +55,7 @@ class ContactSearch extends React.Component {
     return (
       <div>
         <SearchForm onChange={this.onChange} onFilter={this.onFilter} />
-        <SearchResults users={this.state.users} />
+        <SearchResults contacts={this.state.contacts} />
       </div>
     )
   }

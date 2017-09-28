@@ -4,11 +4,11 @@ const User = ({firstName, lastName, phoneNumber}) => {
   return <li>{firstName} {lastName} - {phoneNumber}</li>
 }
 
-const SearchResults = ({users}) => {
+const SearchResults = ({contacts}) => {
   return (
     <ul>
       {
-        users.map(function(user) {
+        contacts.map(function(user) {
           return (
             <User
               key={user.phoneNumber}
@@ -18,6 +18,9 @@ const SearchResults = ({users}) => {
             />
           )
         })
+      }
+      { contacts.length === 0 &&
+        <li>no contacts found</li>
       }
     </ul>
   )
