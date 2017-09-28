@@ -1,0 +1,34 @@
+.contactsList {
+  margin: 0;
+  padding: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact {
+  background-color: #FFF;
+  box-sizing: border-box;
+  width: 47%;
+  padding: 1em; 
+  margin-bottom: 1em;
+  list-style-type: none;
+  text-align: left;
+  font-size: 13px;
+}
+
+.contactName {
+  display: block;
+  color: #044751;
+}
+
+.contactNumber {
+  display: block;
+  color: #708C91;
+}
+
+/* lightGray: '#EEE',
+gray: '#DDD',
+darkGray: '#708C91',
+darkBlue: '#044751',
+blue: '#35B5E8', */

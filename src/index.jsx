@@ -2,6 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import SearchForm from './searchForm'
 import SearchResults from './searchResults'
+import style from './style.css'
 
 class ContactSearch extends React.Component {
 
@@ -17,7 +18,7 @@ class ContactSearch extends React.Component {
         return response.json()
       }).then((json) => {
         this.userArray = json
-        this.updateContacts(this.userArray)
+        this.updateContacts()
       }).catch((ex) => {
         console.log('parsing failed', ex)
       })
@@ -26,9 +27,9 @@ class ContactSearch extends React.Component {
 
   userArray = []
 
-  updateContacts = (contacts) => {
+  updateContacts = () => {
     this.setState({
-      contacts: contacts
+      contacts: this.userArray
     })
   }
 

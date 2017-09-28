@@ -1,20 +1,27 @@
 import React from 'react'
+import style from './style.css'
 
-const User = ({firstName, lastName, phoneNumber}) => {
-  return <li>{firstName} {lastName} - {phoneNumber}</li>
+const Contact = ({firstName, lastName, phoneNumber}) => {
+  return (
+    <li className="contact">
+      <img src="contact.svg" alt=""/>
+      <strong className="contactName">{firstName} {lastName}</strong>
+      <span className="contactNumber">{phoneNumber}</span>
+    </li>
+  )
 }
 
 const SearchResults = ({contacts}) => {
   return (
-    <ul>
+    <ul className="contactsList">
       {
-        contacts.map(function(user) {
+        contacts.map(function(contact) {
           return (
-            <User
-              key={user.phoneNumber}
-              firstName={user.firstName}
-              lastName={user.lastName}
-              phoneNumber={user.phoneNumber}
+            <Contact
+              key={contact.phoneNumber}
+              firstName={contact.firstName}
+              lastName={contact.lastName}
+              phoneNumber={contact.phoneNumber}
             />
           )
         })
