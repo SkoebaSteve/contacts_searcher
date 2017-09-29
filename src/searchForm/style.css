@@ -8,11 +8,11 @@
 }
 
 .filterRadio:checked + .filterLabel {
-  border-bottom: 2px solid #ccc;
+  border-bottom: 2px solid #cccccc;
   font-weight: 700;
 }
 
-.filterLabel{
+.filterLabel {
   width: 100%;
   padding-top: 1.3em;
   padding-bottom: 1.3em;
@@ -24,7 +24,7 @@
   display: block;
   width: 100%;
   padding: 1em 0.5em;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 .filtersHeading {
   text-align: center;
@@ -33,5 +33,5 @@
 .filtersWrapper {
   display: flex;
   text-align: center;
-  border-bottom: 1px #ccc;
+  border-bottom: 1px #cccccc;
 }

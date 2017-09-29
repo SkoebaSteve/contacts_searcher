@@ -7,10 +7,10 @@
 }
 
 .contact {
-  background-color: #FFF;
+  background-color: #ffffff;
   box-sizing: border-box;
   width: 47%;
-  padding: 1em; 
+  padding: 1em;
   margin-bottom: 1em;
   list-style-type: none;
   text-align: left;
@@ -24,7 +24,7 @@
 
 .contactNumber {
   display: block;
-  color: #708C91;
+  color: #708c91;
 }
 
 /* lightGray: '#EEE',
