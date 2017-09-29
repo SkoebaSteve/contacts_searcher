@@ -1,3 +1,4 @@
+/* eslint no-unused-vars: 1 */
 import React from 'react'
 import style from './style.css'
 import Contact from './contact'
