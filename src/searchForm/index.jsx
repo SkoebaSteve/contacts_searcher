@@ -9,18 +9,17 @@ const SearchForm = ({onChange, onFilter, filter}) => {
     <form className={style.searchForm}>
       <input
         type="search"
-        onChange={event => onChange(event.target.value)}
+        onChange={event => onChange(event.target.value)} // callback with the input value to update parent's state
         className={style.searchInput}
         placeholder={`search by ${filter}`}
       />
       <div className={style.searchFilters}>
-        {/* <h2 className="filtersHeading">Filter by</h2> */}
         <div className={style.filtersWrapper}>
           <SearchFilter
             id="firstName"
             name="filter"
             text ="first name"
-            onFilter={onFilter}
+            onFilter={onFilter} // callback with the filter title to update parent's state
             checked
           />
           <SearchFilter

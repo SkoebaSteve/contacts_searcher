@@ -18,8 +18,8 @@ Contact.propTypes = {
   firstName: string.isRequired,
   lastName: string.isRequired,
   phoneNumber: function(props, propName, componentName) {
-    // check if it's a valid phone number
-    if (!/^[a-zA-Z 0-9+-]*$/.test(props[propName])) {
+    // check if it's a valid phone number(can have a + or a dash)
+    if (!/^[0-9+-]*$/.test(props[propName])) {
       return new Error(propName + ' in ' + componentName + " is not a valid phone number");
     }
     // assume all ok

@@ -13,12 +13,13 @@ export default class ContactSearch extends React.Component {
   constructor(props) {
   super(props)
     this.state = {
-      contacts: [],
-      filter: 'firstName',
-      filterText: 'first name',
-      value: '',
+      contacts: [], // filtered contacts
+      filter: 'firstName', // which filter applied
+      filterText: 'first name', // displayed as the placeholder
+      value: '', // holds the value from the text field
     }
 
+    // use the fetch api(with a polyfill imported above) to get the api results
     fetch('http://localhost:3000/contacts')
       .then((response) => {
         return response.json()
@@ -30,21 +31,25 @@ export default class ContactSearch extends React.Component {
       })
 
   }
-
+  // create empty user array to store the initially fetched date
   userArray = []
 
   updateContacts = () => {
     const filteredUsers = this.userArray.filter((user) => {
+      // only return a user if it matches the value from the input field based on the applied filter (first name, last name, phone number) 
+      // convert vale to string, possible for phone number
       if (String(user[this.state.filter]).indexOf(this.state.value) !== -1) {
         return user
       }
       return null
     })
+    //  trigger state change with filtered users
     this.setState({
       contacts: filteredUsers
     })
   }
 
+  // fired when a filter is been selected, updates both the filter and the placeholder in the input
   onFilter = (value, text) => {
     this.setState({
       filter: value,
@@ -52,6 +57,7 @@ export default class ContactSearch extends React.Component {
     }, this.updateContacts)
   }
 
+  // fired on a change in the textfield
   onChange = (value) => {
     this.setState({
       value: value
