@@ -11,9 +11,9 @@ const SearchFilter = ({id, name, text, onFilter, checked}) => {
         id={id}
         name={name}
         value={id}
-        onChange={event => onFilter(event.target.value)}
+        onClick={(event, text) => onFilter(event.target.value, event.target.title)}
+        title={text}
         className="filterRadio"
-        placeholder="text"
         defaultChecked={checked}
       />
       <label htmlFor={id} className="filterLabel">{text}</label>

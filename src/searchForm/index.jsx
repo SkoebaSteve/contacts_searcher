@@ -4,14 +4,14 @@ import style from './style.css'
 import { func } from 'prop-types'
 import SearchFilter from './filter'
 
-const SearchForm = ({onChange, onFilter}) => {
+const SearchForm = ({onChange, onFilter, filter}) => {
   return (
     <form className="searchForm">
       <input
         type="search"
         onChange={event => onChange(event.target.value)}
         className="searchInput"
-        placeholder="search by name"
+        placeholder={`search by ${filter}`}
       />
       <div className="searchFilters">
         {/* <h2 className="filtersHeading">Filter by</h2> */}

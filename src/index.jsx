@@ -12,6 +12,7 @@ class ContactSearch extends React.Component {
     this.state = {
       contacts: [],
       filter: 'firstName',
+      filterText: 'first name',
       value: '',
     }
 
@@ -41,9 +42,10 @@ class ContactSearch extends React.Component {
     })
   }
 
-  onFilter = (value) => {
+  onFilter = (value, text) => {
     this.setState({
-      filter: value
+      filter: value,
+      filterText: text
     }, this.updateContacts)
   }
 
@@ -56,7 +58,7 @@ class ContactSearch extends React.Component {
   render () {
     return (
       <div>
-        <SearchForm onChange={this.onChange} onFilter={this.onFilter} />
+        <SearchForm onChange={this.onChange} onFilter={this.onFilter} filter={this.state.filterText} />
         <SearchResults contacts={this.state.contacts} />
       </div>
     )
