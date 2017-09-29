@@ -6,15 +6,24 @@
   justify-content: space-between;
 }
 
-.contact {
+.contact, .no-results {
   background-color: #ffffff;
   box-sizing: border-box;
-  width: 47%;
+  box-shadow: 1px 3px 4px 0px rgba(0,0,0,0.28);
   padding: 1em;
   margin-bottom: 1em;
   list-style-type: none;
   text-align: left;
   font-size: 13px;
+}
+
+.contact {
+  width: 47%;
+}
+
+.no-results {
+  width: 100%;
+  color: #708c91;
 }
 
 .contactName {

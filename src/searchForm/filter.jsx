@@ -1,9 +1,9 @@
 /* eslint no-unused-vars: 1 */
 import React from 'react'
 import style from './style.css'
-import { string, func } from 'prop-types'
+import { string, func, bool } from 'prop-types'
 
-const SearchFilter = ({id, name, text, onFilter}) => {
+const SearchFilter = ({id, name, text, onFilter, checked}) => {
   return (
     <div className="filter">
       <input
@@ -14,6 +14,7 @@ const SearchFilter = ({id, name, text, onFilter}) => {
         onChange={event => onFilter(event.target.value)}
         className="filterRadio"
         placeholder="text"
+        defaultChecked={checked}
       />
       <label htmlFor={id} className="filterLabel">{text}</label>
     </div>
@@ -24,7 +25,12 @@ SearchFilter.propTypes = {
   id: string.isRequired,
   name: string.isRequired,
   text: string.isRequired,
-  onFilter: func.isRequired
+  onFilter: func.isRequired,
+  checked: bool,
+}
+
+SearchFilter.defaultProps = {
+  checked: false,
 }
 
 export default SearchFilter

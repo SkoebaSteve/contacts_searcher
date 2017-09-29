@@ -1,33 +1,15 @@
-.filter {
-  font-size: 1em;
-  width: calc(100% / 3);
-}
-
-.filterRadio {
-  position: absolute;
-}
-
-.filterRadio:checked + .filterLabel {
-  border-bottom: 2px solid #cccccc;
-  font-weight: 700;
-}
-
-.filterLabel {
-  width: 100%;
-  padding-top: 1.3em;
-  padding-bottom: 1.3em;
-  display: block;
-  position: relative;
-}
-
 .searchInput {
+  border: 0;
   display: block;
   width: 100%;
   padding: 1em 0.5em;
   box-sizing: border-box;
-}
-.filtersHeading {
   text-align: center;
+  color: #708c91;
+}
+
+.searchInput::placeholder {
+  color: #708c91;
 }
 
 .filtersWrapper {
@@ -35,3 +17,33 @@
   text-align: center;
   border-bottom: 1px #cccccc;
 }
+
+.filter {
+  font-size: 1em;
+  width: calc(100% / 3);
+}
+
+.filterRadio {
+  position: absolute;
+  opacity: 0;
+}
+
+.filterRadio:checked + .filterLabel {
+  border-bottom: 2px solid #cccccc;
+  color: #044751;
+  font-weight: 700;
+}
+
+.filterLabel {
+  width: 100%;
+  padding-top: 1.3em;
+  padding-bottom: 1.3em;
+  background-color: #ffffff;
+  color: #708c91;
+  box-sizing: border-box;
+  box-shadow: 1px 3px 4px 0px rgba(0,0,0,0.28);
+  font-size: 13px;
+  display: block;
+  position: relative;
+}
+

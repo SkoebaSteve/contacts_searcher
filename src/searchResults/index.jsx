@@ -20,7 +20,7 @@ const SearchResults = ({contacts}) => {
         })
       }
       { contacts.length === 0 &&
-        <li>no contacts found</li>
+        <li className="no-results">no contacts found</li>
       }
     </ul>
   )

@@ -11,15 +11,17 @@ const SearchForm = ({onChange, onFilter}) => {
         type="search"
         onChange={event => onChange(event.target.value)}
         className="searchInput"
+        placeholder="search by name"
       />
       <div className="searchFilters">
-        <h2 className="filtersHeading">Filter by</h2>
+        {/* <h2 className="filtersHeading">Filter by</h2> */}
         <div className="filtersWrapper">
           <SearchFilter
             id="firstName"
             name="filter"
             text ="first name"
             onFilter={onFilter}
+            checked
           />
           <SearchFilter
             id="lastName"
