@@ -6,7 +6,7 @@ import { array } from 'prop-types'
 
 const SearchResults = ({contacts}) => {
   return (
-    <ul className="contactsList">
+    <ul className={style.contactsList}>
       {
         contacts.map(function(contact) {
           return (
@@ -20,7 +20,7 @@ const SearchResults = ({contacts}) => {
         })
       }
       { contacts.length === 0 &&
-        <li className="no-results">no contacts found</li>
+        <li className={style.noResults}>no contacts found</li>
       }
     </ul>
   )

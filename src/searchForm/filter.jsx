@@ -5,7 +5,7 @@ import { string, func, bool } from 'prop-types'
 
 const SearchFilter = ({id, name, text, onFilter, checked}) => {
   return (
-    <div className="filter">
+    <div className={style.filter}>
       <input
         type="radio"
         id={id}
@@ -13,10 +13,10 @@ const SearchFilter = ({id, name, text, onFilter, checked}) => {
         value={id}
         onClick={(event, text) => onFilter(event.target.value, event.target.title)}
         title={text}
-        className="filterRadio"
+        className={style.filterRadio}
         defaultChecked={checked}
       />
-      <label htmlFor={id} className="filterLabel">{text}</label>
+      <label htmlFor={id} className={style.filterLabel}>{text}</label>
     </div>
   )
 }

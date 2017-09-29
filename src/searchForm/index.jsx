@@ -6,16 +6,16 @@ import SearchFilter from './filter'
 
 const SearchForm = ({onChange, onFilter, filter}) => {
   return (
-    <form className="searchForm">
+    <form className={style.searchForm}>
       <input
         type="search"
         onChange={event => onChange(event.target.value)}
-        className="searchInput"
+        className={style.searchInput}
         placeholder={`search by ${filter}`}
       />
-      <div className="searchFilters">
+      <div className={style.searchFilters}>
         {/* <h2 className="filtersHeading">Filter by</h2> */}
-        <div className="filtersWrapper">
+        <div className={style.filtersWrapper}>
           <SearchFilter
             id="firstName"
             name="filter"

@@ -6,10 +6,10 @@ import contactSVG from './contact.svg'
 
 const Contact = ({firstName, lastName, phoneNumber}) => {
   return (
-    <li className="contact">
+    <li className={style.contact}>
       <img src={contactSVG} width="24" alt="icon depicting a user"/>
-      <strong className="contactName">{firstName} {lastName}</strong>
-      <span className="contactNumber">{phoneNumber}</span>
+      <strong className={style.contactName}>{firstName} {lastName}</strong>
+      <span className={style.contactNumber}>{phoneNumber}</span>
     </li>
   )
 }

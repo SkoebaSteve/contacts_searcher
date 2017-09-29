@@ -1,4 +1,5 @@
 /* eslint no-unused-vars: 1 */
+/* eslint no-console: 1 */
 import React from 'react'
 import { render } from 'react-dom'
 import 'isomorphic-fetch'

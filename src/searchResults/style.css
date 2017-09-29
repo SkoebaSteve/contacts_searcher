@@ -6,7 +6,7 @@
   justify-content: space-between;
 }
 
-.contact, .no-results {
+.contact, .noResults {
   background-color: #ffffff;
   box-sizing: border-box;
   box-shadow: 1px 3px 4px 0px rgba(0,0,0,0.28);
@@ -21,7 +21,7 @@
   width: 47%;
 }
 
-.no-results {
+.noResults {
   width: 100%;
   color: #708c91;
 }
@@ -35,9 +35,3 @@
   display: block;
   color: #708c91;
 }
-
-/* lightGray: '#EEE',
-gray: '#DDD',
-darkGray: '#708C91',
-darkBlue: '#044751',
-blue: '#35B5E8', */
