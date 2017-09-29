@@ -4,11 +4,13 @@
   "description": "contact searcher task for transferwise",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --hot --content-base build/",
+    "dev": "webpack-dev-server -d --hot --content-base build/",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "build": "webpack -p --display-error-details"
+    "build": "webpack -p --display-error-details",
+    "server": "node api/server.js",
+    "start": "npm run dev | npm run server"
   },
   "author": "steef janssen",
   "license": "ISC",
@@ -38,6 +40,7 @@
     "eslint-plugin-standard": "^3.0.1",
     "file-loader": "^0.11.2",
     "jest": "^21.2.1",
+    "json-server": "^0.12.0",
     "postcss-loader": "^2.0.6",
     "prop-types": "^15.6.0",
     "react-addons-test-utils": "^15.6.2",
