@@ -1,7 +1,7 @@
 /* eslint no-unused-vars: 1 */
 import React from 'react'
 import style from './style.css'
-import { string, number } from 'prop-types'
+import { string } from 'prop-types'
 import contactSVG from './contact.svg'
 
 const Contact = ({firstName, lastName, phoneNumber}) => {
@@ -17,7 +17,14 @@ const Contact = ({firstName, lastName, phoneNumber}) => {
 Contact.propTypes = {
   firstName: string.isRequired,
   lastName: string.isRequired,
-  phoneNumber: number,
+  phoneNumber: function(props, propName, componentName) {
+    // check if it's a valid phone number
+    if (!/^[a-zA-Z 0-9+-]*$/.test(props[propName])) {
+      return new Error(propName + ' in ' + componentName + " is not a valid phone number");
+    }
+    // assume all ok
+    return null;
+  }
 }
 
 Contact.defaultProps = {

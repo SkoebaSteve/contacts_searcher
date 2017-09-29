@@ -1,11 +1,13 @@
 /* eslint no-unused-vars: 1 */
 import React from 'react'
 import { render } from 'react-dom'
+import 'isomorphic-fetch'
+import 'es6-promise'
 import SearchForm from './searchForm'
 import SearchResults from './searchResults'
 import style from './style.css'
 
-class ContactSearch extends React.Component {
+export default class ContactSearch extends React.Component {
 
   constructor(props) {
   super(props)
