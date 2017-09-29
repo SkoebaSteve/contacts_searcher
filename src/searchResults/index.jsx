@@ -1,15 +1,7 @@
 import React from 'react'
 import style from './style.css'
-
-const Contact = ({firstName, lastName, phoneNumber}) => {
-  return (
-    <li className="contact">
-      <img src="contact.svg" alt=""/>
-      <strong className="contactName">{firstName} {lastName}</strong>
-      <span className="contactNumber">{phoneNumber}</span>
-    </li>
-  )
-}
+import Contact from './contact'
+import { array } from 'prop-types'
 
 const SearchResults = ({contacts}) => {
   return (
@@ -31,6 +23,10 @@ const SearchResults = ({contacts}) => {
       }
     </ul>
   )
+}
+
+SearchResults.propTypes = {
+  contacts: array.isRequired
 }
 
 export default SearchResults

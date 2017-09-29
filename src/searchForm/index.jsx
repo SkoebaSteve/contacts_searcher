@@ -1,22 +1,7 @@
 import React from 'react'
 import style from './style.css'
-
-const SearchFilter = ({id, name, text, onFilter}) => {
-  return (
-    <div className="filter">
-      <input
-        type="radio"
-        id={id}
-        name={name}
-        value={id}
-        onChange={event => onFilter(event.target.value)}
-        className="filterRadio"
-        placeholder="text"
-      />
-      <label htmlFor={id} className="filterLabel">{text}</label>
-    </div>
-  )
-}
+import { func } from 'prop-types'
+import SearchFilter from './filter'
 
 const SearchForm = ({onChange, onFilter}) => {
   return (
@@ -51,6 +36,11 @@ const SearchForm = ({onChange, onFilter}) => {
       </div>
     </form>
   )
+}
+
+SearchForm.propTypes = {
+  onChange: func.isRequired,
+  onFilter: func.isRequired
 }
 
 export default SearchForm
