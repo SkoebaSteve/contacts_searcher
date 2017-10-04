@@ -1,5 +1,6 @@
 /* eslint no-undef: 0 */
 /* eslint no-unused-vars: 0 */
+/* eslint no-console: 1 */
 import React, { Component } from 'react'
 import { shallow } from 'enzyme'
 import toJson from 'enzyme-to-json'

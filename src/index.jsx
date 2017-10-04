@@ -11,7 +11,7 @@ import style from './style.css'
 export default class ContactSearch extends React.Component {
   
   constructor(props) {
-  super(props)
+    super(props)
     this.state = {
       contacts: [], // filtered contacts
       filter: 'firstName', // which filter applied

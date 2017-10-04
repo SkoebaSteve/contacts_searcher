@@ -7,7 +7,7 @@ import SearchFilter from './filter'
 export default class SearchForm extends React.Component {
 
   state = {
-    filter: this.props.filter || "first name"
+    filter: this.props.filter || 'first name'
   }
 
   onFilter = (filter, filterText) => {
@@ -17,7 +17,7 @@ export default class SearchForm extends React.Component {
     this.props.onFilter(filter)
   }
   
-  render (props) {
+  render () {
     const filter = this.state.filter
     const onFilter = this.onFilter
     return (

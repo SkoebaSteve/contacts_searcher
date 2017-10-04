@@ -20,10 +20,10 @@ Contact.propTypes = {
   phoneNumber: function(props, propName, componentName) {
     // check if it's a valid phone number(can have a + or a dash)
     if (!/^[0-9+-]*$/.test(props[propName])) {
-      return new Error(propName + ' in ' + componentName + " is not a valid phone number");
+      return new Error(`${propName} in ${componentName} is not a valid phone number`)
     }
     // assume all ok
-    return null;
+    return null
   }
 }
 

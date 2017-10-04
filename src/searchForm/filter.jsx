@@ -12,7 +12,7 @@ const SearchFilter = ({id, name, text, onFilter, checked}) => {
         name={name}
         value={id}
         // using the onClick event, since the onChange implementation is quite buggy in React >15.6.1 (https://github.com/facebook/react/issues/10168)
-        onClick={(event, text) => onFilter(event.target.value, event.target.title)} //callback event that returns it's title on click
+        onClick={event => onFilter(event.target.value, event.target.title)} //callback event that returns it's title on click
         title={text}
         className={style.filterRadio}
         defaultChecked={checked}
