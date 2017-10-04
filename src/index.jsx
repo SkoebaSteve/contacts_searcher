@@ -9,13 +9,12 @@ import SearchResults from './searchResults'
 import style from './style.css'
 
 export default class ContactSearch extends React.Component {
-
+  
   constructor(props) {
   super(props)
     this.state = {
       contacts: [], // filtered contacts
       filter: 'firstName', // which filter applied
-      filterText: 'first name', // displayed as the placeholder
       value: '', // holds the value from the text field
     }
 
@@ -38,7 +37,7 @@ export default class ContactSearch extends React.Component {
     const filteredUsers = this.userArray.filter((user) => {
       // only return a user if it matches the value from the input field based on the applied filter (first name, last name, phone number) 
       // convert vale to string, possible for phone number
-      if (String(user[this.state.filter]).indexOf(this.state.value) !== -1) {
+      if (String(user[this.state.filter]).toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1) {
         return user
       }
       return null
@@ -50,10 +49,9 @@ export default class ContactSearch extends React.Component {
   }
 
   // fired when a filter is been selected, updates both the filter and the placeholder in the input
-  onFilter = (value, text) => {
+  onFilter = (value) => {
     this.setState({
-      filter: value,
-      filterText: text
+      filter: value
     }, this.updateContacts)
   }
 
@@ -67,7 +65,7 @@ export default class ContactSearch extends React.Component {
   render () {
     return (
       <div>
-        <SearchForm onChange={this.onChange} onFilter={this.onFilter} filter={this.state.filterText} />
+        <SearchForm onChange={this.onChange} onFilter={this.onFilter} filter="first name" />
         <SearchResults contacts={this.state.contacts} />
       </div>
     )

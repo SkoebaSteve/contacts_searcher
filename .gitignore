@@ -2,8 +2,6 @@ DS_STORE
 node_modules
 coverage/
 .module-cache
-test/
 __snapshots__/
-__mocks__/
 *.log*
 .vscode
