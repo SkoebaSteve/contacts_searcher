@@ -1,7 +1,7 @@
 {
   "name": "contact_searcher",
   "version": "1.0.0",
-  "description": "contact searcher task for transferwise",
+  "description": "contact searcher task",
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server -d --hot --content-base build/",
@@ -111,5 +111,9 @@
       "<rootDir>/test/",
       "<rootDir>/node_modules/"
     ]
-  }
+  },
+  "pre-commit": [
+    "test",
+    "lint"
+  ]
 }
