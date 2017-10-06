@@ -6,6 +6,7 @@ import 'isomorphic-fetch'
 import 'es6-promise'
 import SearchForm from './searchForm'
 import SearchResults from './searchResults'
+import FilterByUser from './helpers'
 import style from './style.css'
 
 export default class ContactSearch extends React.Component {
@@ -32,19 +33,17 @@ export default class ContactSearch extends React.Component {
   }
   // create empty user array to store the initially fetched date
   userArray = []
+  filters = [
+    {name: 'firstName', text: 'first name', checked: true},
+    {name: 'lastName', text: 'last name', checked: false},
+    {name: 'phoneNumber', text: 'phone number', checked: false}
+  ]
 
   updateContacts = () => {
-    const filteredUsers = this.userArray.filter((user) => {
-      // only return a user if it matches the value from the input field based on the applied filter (first name, last name, phone number) 
-      // convert vale to string, possible for phone number
-      if (String(user[this.state.filter]).toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1) {
-        return user
-      }
-      return null
-    })
     //  trigger state change with filtered users
     this.setState({
-      contacts: filteredUsers
+      // use the userFilter helper
+      contacts: FilterByUser(this.state.value, this.state.filter, this.userArray)
     })
   }
 
@@ -65,7 +64,7 @@ export default class ContactSearch extends React.Component {
   render () {
     return (
       <div>
-        <SearchForm onChange={this.onChange} onFilter={this.onFilter} filter="first name" />
+        <SearchForm onChange={this.onChange} onFilter={this.onFilter} filters={this.filters} />
         <SearchResults contacts={this.state.contacts} />
       </div>
     )

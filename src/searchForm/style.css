@@ -5,17 +5,17 @@
   padding: 1em 0.5em;
   box-sizing: border-box;
   text-align: center;
-  color: #708c91;
+  color: #708C91;
 }
 
 .searchInput::placeholder {
-  color: #708c91;
+  color: #708C91;
 }
 
 .filtersWrapper {
   display: flex;
   text-align: center;
-  border-bottom: 1px #cccccc;
+  border-bottom: 1px #CCCCCC;
 }
 
 .filter {
@@ -29,7 +29,7 @@
 }
 
 .filterRadio:checked + .filterLabel {
-  border-bottom: 2px solid #cccccc;
+  border-bottom: 2px solid #CCCCCC;
   color: #044751;
   font-weight: 700;
 }
@@ -38,10 +38,10 @@
   width: 100%;
   padding-top: 1.3em;
   padding-bottom: 1.3em;
-  background-color: #ffffff;
-  color: #708c91;
+  background-color: #FFFFFF;
+  color: #708C91;
   box-sizing: border-box;
-  box-shadow: 1px 3px 4px 0px rgba(0,0,0,0.28);
+  box-shadow: 1px 3px 4px 0 rgba(0, 0, 0, 0.28);
   font-size: 13px;
   display: block;
   position: relative;

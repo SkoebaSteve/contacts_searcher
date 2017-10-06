@@ -6,10 +6,11 @@
   justify-content: space-between;
 }
 
-.contact, .noResults {
-  background-color: #ffffff;
+.contact,
+.noResults {
+  background-color: #FFFFFF;
   box-sizing: border-box;
-  box-shadow: 1px 3px 4px 0px rgba(0,0,0,0.28);
+  box-shadow: 1px 3px 4px 0 rgba(0, 0, 0, 0.28);
   padding: 1em;
   margin-bottom: 1em;
   list-style-type: none;
@@ -23,7 +24,7 @@
 
 .noResults {
   width: 100%;
-  color: #708c91;
+  color: #708C91;
 }
 
 .contactName {
@@ -33,5 +34,5 @@
 
 .contactNumber {
   display: block;
-  color: #708c91;
+  color: #708C91;
 }

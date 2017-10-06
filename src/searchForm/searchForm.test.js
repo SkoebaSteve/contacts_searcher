@@ -7,15 +7,16 @@ import sinon from 'sinon'
 import SearchForm from './'
 import SearchFilter from './filter'
 
+const filters = [
+  {name: 'firstName', text: 'first name', checked: true},
+  {name: 'lastName', text: 'last name', checked: false},
+  {name: 'phoneNumber', text: 'phone number', checked: false}
+]
+
 it('should render a basic search form', () => {
-  const wrapper = shallow(<SearchForm onChange={() => {}} onFilter={() => {}} />)
+  const wrapper = shallow(<SearchForm onChange={() => {}} onFilter={() => {}} filters={filters} />)
   expect(wrapper.find(SearchFilter)).to.have.length(3)
   expect(wrapper.state('filter')).to.equal('first name')
-})
-
-it('should render a search form with filter text', () => {
-  const wrapper = shallow(<SearchForm onChange={() => {}} onFilter={() => {}} filter="some filter" />)
-  expect(wrapper.state('filter')).to.equal('some filter')
 })
 
 it('should fire the change event', () => {
@@ -25,6 +26,7 @@ it('should fire the change event', () => {
     <SearchForm
       onChange={onChange}
       onFilter={() => {}}
+      filters={filters}
     />
   )
   wrapper.find('input[type="search"]').simulate('change')
@@ -38,6 +40,7 @@ it('should fire the filter event and update the filter', () => {
     <SearchForm
       onChange={() => {}}
       onFilter={onFilter}
+      filters={filters}
     />
   )
   wrapper.find('input[title="last name"]').simulate('click')

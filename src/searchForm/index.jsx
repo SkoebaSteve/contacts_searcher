@@ -7,7 +7,7 @@ import SearchFilter from './filter'
 export default class SearchForm extends React.Component {
 
   state = {
-    filter: this.props.filter || 'first name'
+    filter: this.props.filters[0].text
   }
 
   onFilter = (filter, filterText) => {
@@ -18,6 +18,7 @@ export default class SearchForm extends React.Component {
   }
   
   render () {
+    const filters = this.props.filters
     const filter = this.state.filter
     const onFilter = this.onFilter
     return (
@@ -30,25 +31,21 @@ export default class SearchForm extends React.Component {
         />
         <div className={style.searchFilters}>
           <div className={style.filtersWrapper}>
-            <SearchFilter
-              id="firstName"
-              name="filter"
-              text="first name"
-              onFilter={onFilter} // callback with the filter title to update parent's state
-              checked
-            />
-            <SearchFilter
-              id="lastName"
-              name="filter"
-              text="last name"
-              onFilter={onFilter}
-            />
-            <SearchFilter
-              id="phoneNumber"
-              name="filter"
-              text="phone number"
-              onFilter={onFilter}
-            />
+            {
+              filters.map(function(filter) {
+                const {name, text, checked} = filter
+                return (
+                  <SearchFilter
+                    key={name}
+                    id={name}
+                    name="filter"
+                    text={text}
+                    onFilter={onFilter} // callback with the filter title to update parent's state
+                    checked={checked}
+                  />
+                )
+              })
+            }
           </div>
         </div>
       </form>
