@@ -9,4 +9,14 @@ const FilterByUser = (value, filter, userList) => {
   })
 }
 
-export default FilterByUser
+const FilterForState = (filters, value) => {
+  const filtered = filters.filter((filter) => {
+    if (filter.checked) {
+      return filter
+    }
+    return false
+  })
+  return filtered[0][value]
+}
+
+export { FilterByUser, FilterForState }

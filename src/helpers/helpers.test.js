@@ -1,9 +1,15 @@
 /* eslint no-undef: 0 */
-import FilterByUser from './'
+import { FilterByUser, FilterForState } from './'
 
 const userArray = [
   {firstName: 'Steef', lastName: 'Janssen', phoneNumber: '01234'},
   {firstName: 'Janssen', lastName: 'Steef', phoneNumber: '56789'}
+]
+
+const filters = [
+  {name: 'firstName', text: 'first name', checked: false},
+  {name: 'lastName', text: 'last name', checked: false},
+  {name: 'phoneNumber', text: 'phone number', checked: true}
 ]
 
 test('returns all users', () => {
@@ -28,6 +34,12 @@ test('returns no users with wrong data', () => {
 
 test('is not case sensitive', () => {
   expect(FilterByUser('steef', 'lastName', userArray)).toEqual([{firstName: 'Janssen', lastName: 'Steef', phoneNumber: '56789'}])
+})
+
+test('check if the filters for the state are working correctly', () => {
+  expect(FilterForState(filters, 'name')).toEqual('phoneNumber')
+  expect(FilterForState(filters, 'text')).toEqual('phone number')
+  expect(FilterForState(filters, 'checked')).toEqual(true)
 })
 
 

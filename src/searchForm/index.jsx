@@ -3,11 +3,12 @@ import React from 'react'
 import style from './style.css'
 import { func } from 'prop-types'
 import SearchFilter from './filter'
+import { FilterForState } from '../helpers'
 
 export default class SearchForm extends React.Component {
 
   state = {
-    filter: this.props.filters[0].text
+    filter: FilterForState(this.props.filters, 'text')
   }
 
   onFilter = (filter, filterText) => {

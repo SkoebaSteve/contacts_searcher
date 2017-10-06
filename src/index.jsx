@@ -6,7 +6,7 @@ import 'isomorphic-fetch'
 import 'es6-promise'
 import SearchForm from './searchForm'
 import SearchResults from './searchResults'
-import FilterByUser from './helpers'
+import { FilterByUser, FilterForState } from './helpers'
 import style from './style.css'
 
 export default class ContactSearch extends React.Component {
@@ -15,7 +15,7 @@ export default class ContactSearch extends React.Component {
     super(props)
     this.state = {
       contacts: [], // filtered contacts
-      filter: 'firstName', // which filter applied
+      filter: FilterForState(this.filters, 'name'), // which filter applied
       value: '', // holds the value from the text field
     }
 
@@ -34,9 +34,9 @@ export default class ContactSearch extends React.Component {
   // create empty user array to store the initially fetched date
   userArray = []
   filters = [
-    {name: 'firstName', text: 'first name', checked: true},
+    {name: 'firstName', text: 'first name', checked: false},
     {name: 'lastName', text: 'last name', checked: false},
-    {name: 'phoneNumber', text: 'phone number', checked: false}
+    {name: 'phoneNumber', text: 'phone number', checked: true}
   ]
 
   updateContacts = () => {
